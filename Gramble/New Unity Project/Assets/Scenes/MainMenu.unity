@@ -2507,6 +2507,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1549917718}
   - component: {fileID: 1549917717}
+  - component: {fileID: 1549917719}
   m_Layer: 0
   m_Name: MenuController
   m_TagString: Untagged
@@ -2529,10 +2530,12 @@ MonoBehaviour:
   VersioName: 0.1
   UsernameMenu: {fileID: 1459028905}
   ConnectPanel: {fileID: 463371414}
+  netManager: {fileID: 5001901810688135042, guid: 5cbad06adbc09884e9612d93240903fd, type: 3}
   StartButton: {fileID: 719237360}
-  UsernameInput: {fileID: 2083569967}
-  CreateGameInput: {fileID: 918558253}
-  JoinGameInput: {fileID: 1428114600}
+  UsernameField: {fileID: 2083569967}
+  CreateRoomNameField: {fileID: 918558253}
+  JoinRoomNameField: {fileID: 1428114600}
+  roomName: 
 --- !u!4 &1549917718
 Transform:
   m_ObjectHideFlags: 0
@@ -2547,6 +2550,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1549917719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1549917716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b0fecffa3f624585964b0d0eb21b18e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Port: 7777
+  NoDelay: 1
+  Interval: 10
+  FastResend: 2
+  CongestionWindow: 0
+  SendWindowSize: 128
+  ReceiveWindowSize: 128
+  debugLog: 0
+  debugGUI: 0
 --- !u!1 &1643716756
 GameObject:
   m_ObjectHideFlags: 0

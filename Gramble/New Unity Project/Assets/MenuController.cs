@@ -2,39 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Mirror;
+using UnityEngine.SceneManagement;
+using System.Net;
+using System.Net.Sockets;
 
 public class MenuController : MonoBehaviour
 {
     [SerializeField] private string VersioName = "0.1";
     [SerializeField] private GameObject UsernameMenu;
     [SerializeField] private GameObject ConnectPanel;
+    public CustomNetworkManager netManager = new CustomNetworkManager();
 
     [SerializeField] private GameObject StartButton;
-
-    [SerializeField] private InputField UsernameInput;
-    [SerializeField] private InputField CreateGameInput;
-    [SerializeField] private InputField JoinGameInput;
-
-
-    private void Awake()
-    {
-        PhotonNetwork.ConnectUsingSettings(VersioName);
-    }
+    public InputField UsernameField;
+    public InputField CreateRoomNameField;
+    public InputField JoinRoomNameField;
+    private string username = "";
+    public string roomName = "";
+    private bool alreadyStarted = false;
+    private bool creatingGame = false;
+    private bool joiningGame = false;
 
     private void Start()
     {
         UsernameMenu.SetActive(true);
     }
 
-    private void OnConnectedToMaster()
-    {
-        PhotonNetwork.JoinLobby(TypedLobby.Default);
-        Debug.Log("Connected");
-    }
-
     public void ChangeUserNamelnput()
     {
-        if (UsernameInput.text.Length >= 3)
+        if(UsernameField.text.Length >= 1)
         {
             StartButton.SetActive(true);
         }
@@ -46,26 +43,42 @@ public class MenuController : MonoBehaviour
 
     public void SetUserName()
     {
+        username = UsernameField.text;
         UsernameMenu.SetActive(false);
-        PhotonNetwork.playerName = UsernameInput.text;
     }
 
     public void CreateGame()
     {
-        PhotonNetwork.CreateRoom(CreateGameInput.text, new RoomOptions() { maxPlayers = 5 }, null);
+        if (CreateRoomNameField.text != null && CreateRoomNameField.text != "")
+        {
+            roomName = CreateRoomNameField.text;
+            string ip = new WebClient().DownloadString("http://icanhazip.com");
+            ip = ip.TrimEnd('\r', '\n');
+            Debug.Log(ip);
+            //TODO ADD DATABASE WITH THE OPEN GAME NAMES
+            netManager.networkAddress = ip;
+            netManager.creatingOrJoining = 0;
+            SceneManager.LoadScene("MainGame");
+        }
     }
 
     public void JoinGame()
     {
-        RoomOptions roomOptions = new RoomOptions();
-        roomOptions.maxPlayers = 5;
-        PhotonNetwork.JoinOrCreateRoom(JoinGameInput.text, roomOptions, TypedLobby.Default);
+        roomName = JoinRoomNameField.text;
+        //string ip = GET FROM DATABASE BASED ON JOINROOMNAMEFIELD
+        //ip = ip.TrimEnd('\r', '\n');
+        //TODO ADD DATABASE WITH THE OPEN GAME NAMES
+
+        //temporary using ip instead of room name until the databse gets implemented
+        string ip = roomName;
+        netManager.networkAddress = ip;
+        netManager.creatingOrJoining = 1;
+        SceneManager.LoadScene("MainGame");
     }
 
-    private void OnJoinedRoom()
+    void Update()
     {
-        PhotonNetwork.LoadLevel("MainGame");
+
     }
-
-
 }
+
