@@ -14,17 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SimpleSelectedItems:
     m_Keys:
-    - Assets/CustomNetworkManager.cs
-    - Assets/CustomNetworkManager.cs.meta
-    - Assets/MenuController.cs
-    - Assets/Mirror/Runtime/NetworkManager.cs
-    - Assets/Prefabs/NetworkManager.prefab
-    - Assets/Scenes/MainGame.unity
-    - Assets/Scenes/MainMenu.unity
-    - ProjectSettings/EditorBuildSettings.asset
     - 
-    m_Values: 000000000000000000
-  RevisionSummary: 
+    m_Values: 01
+  RevisionSummary: Fixed memory Leaks, yikes
   ChangesSearchValue: 
   SelectedHistoryRevision: 
   HistoryPageNumber: 0
