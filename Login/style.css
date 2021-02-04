@@ -1,0 +1,16 @@
+#wrap { 
+	width: 400px; 
+	margin: 0 auto; 
+}
+table {
+    margin-top: 150px;
+    background-color: #E8D5B5;
+}
+
+td {
+    padding: 10px;
+}
+
+th {
+    background-color:#233DB5;
+}
