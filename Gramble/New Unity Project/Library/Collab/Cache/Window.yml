@@ -14,9 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SimpleSelectedItems:
     m_Keys:
+    - Assets/Prefabs/Bullet.prefab
+    - Assets/Resources/TankPlayer.prefab
+    - Assets/Scripts/part2/PlayerController.cs
     - 
-    m_Values: 01
-  RevisionSummary: Fixed memory Leaks, yikes
+    m_Values: 01010101
+  RevisionSummary: Networking things
   ChangesSearchValue: 
   SelectedHistoryRevision: 
   HistoryPageNumber: 0

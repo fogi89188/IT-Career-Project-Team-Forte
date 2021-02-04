@@ -3,20 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Mirror;
+using System;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerTankMovement : NetworkBehaviour
 {
-    
+
     public int movementSpeed = 0;
     public int rotationSpeedTank = 0;
     public int rotationSpeedTurret = 0;
 
-    Transform tankBody;
-    Transform tankTurret;
+    public Transform tankBody;
+    public Transform tankTurret;
     Rigidbody2D rb2d;
-
-
 
     public Rigidbody2D rb;
     public Animator anim;
@@ -33,15 +32,12 @@ public class PlayerTankMovement : NetworkBehaviour
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
-        tankBody = transform.Find("Chassie");
-        tankTurret = transform.Find("Turret");
     }
 
     public void MovePlayer(float inputValue)
     {
-        rb2d.velocity = tankBody.right*inputValue * movementSpeed;
+        rb2d.velocity = tankBody.right * inputValue * movementSpeed;
     }
-
 
     public void RotateTankTurret(Vector3 endpoint)
     {
@@ -55,7 +51,6 @@ public class PlayerTankMovement : NetworkBehaviour
     {
         float rotation = -inputDirection * rotationSpeedTank;
         tankBody.Rotate(Vector3.forward * rotation);
-
     }
 
     public override void OnStartLocalPlayer()
