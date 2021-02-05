@@ -1,10 +1,11 @@
 #wrap { 
-	width: 400px; 
+	max-width: 250px; 
 	margin: 0 auto; 
 }
 table {
-    margin-top: 150px;
-    background-color: #E8D5B5;
+    background-color: #4f505e;
+    width: 300px;
+    opacity: 0.95;
 }
 
 td {
@@ -12,5 +13,29 @@ td {
 }
 
 th {
-    background-color:#233DB5;
+    background-color:#F07C25;
 }
+body, html {
+    height: 100%;
+    min-width: 480px;
+    max-width: 1920px;
+  }
+  
+  .bg {
+    background-image: url("../Login/assets/menu.jpg");
+    height: 100%;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: s;
+    min-width: 480px;
+    max-width: 1920px;
+  }
+  .bg-home {
+    background-image: url("../Login/assets/username.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: s;
+    min-width: 480px;
+    max-width: 1920px;
+  }
