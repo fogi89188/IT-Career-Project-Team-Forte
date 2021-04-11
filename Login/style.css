@@ -1,0 +1,57 @@
+#wrap {
+    max-width: 250px;
+    margin: 0 auto;
+}
+
+table {
+    background-color: #4f505e;
+    width: 300px;
+    opacity: 0.95;
+}
+
+td {
+    padding: 10px;
+}
+
+th {
+    background-color: #F07C25;
+}
+
+body,
+html {
+    height: 100%;
+    min-width: 480px;
+    max-width: 1920px;
+}
+
+.bg {
+    background-image: url("../Login/assets/menu.jpg");
+    height: 100%;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: s;
+    min-width: 480px;
+    max-width: 1920px;
+}
+
+.bg-home {
+    background-image: url("../Login/assets/webbackground.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: s;
+    min-width: 480px;
+    max-width: 1920px;
+}
+
+.body-content {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.tank:hover {
+    outline: none;
+    border-color: #ff23c9;
+    box-shadow: 0 0 70px #ff23c9;
+}
